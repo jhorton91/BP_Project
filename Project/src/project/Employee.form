@@ -6,14 +6,35 @@
     </Component>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
+        <Menu class="javax.swing.JMenu" name="mHome">
           <Properties>
-            <Property name="text" type="java.lang.String" value="File"/>
+            <Property name="text" type="java.lang.String" value="Home"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu2">
+        <Menu class="javax.swing.JMenu" name="mEmployees">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Edit"/>
+            <Property name="text" type="java.lang.String" value="Employees"/>
+          </Properties>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="mDepartments">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Departments"/>
+          </Properties>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="mAssignments">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Assignments"/>
+          </Properties>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="mPayroll">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Payroll"/>
+            <Property name="actionCommand" type="java.lang.String" value="Payroll"/>
+          </Properties>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="mClose">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Close"/>
           </Properties>
         </Menu>
       </SubComponents>
@@ -78,7 +99,7 @@
                       <Component id="jScrollPane1" min="-2" pref="443" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="addButton" min="-2" max="-2" attributes="0"/>
+                      <Component id="bAdd" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="bUpdate" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -165,7 +186,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="addButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="bAdd" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="bUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="bCurrent" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="bPast" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -233,12 +254,12 @@
         <Property name="text" type="java.lang.String" value="Male"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="addButton">
+    <Component class="javax.swing.JButton" name="bAdd">
       <Properties>
         <Property name="text" type="java.lang.String" value="Add"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addButtonActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bAddActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -250,6 +271,9 @@
       <SubComponents>
         <Component class="javax.swing.JTable" name="outputTable">
           <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="0" rowCount="0"/>
+            </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0"/>
             </Property>

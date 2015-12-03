@@ -1,17 +1,16 @@
 package project;
 
 import java.util.Enumeration;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 
-public class MainForm1 extends javax.swing.JFrame {
+public class Employee extends javax.swing.JFrame {
 
     /**
-     * Creates new form SportsDirectory
+     * Creates new form Employee
      */
-    public MainForm1() {
+    public Employee() {
         initComponents();
     }
 
@@ -36,7 +35,7 @@ public class MainForm1 extends javax.swing.JFrame {
         phoneText = new javax.swing.JTextField();
         femaleRadioButton = new javax.swing.JRadioButton();
         maleRadioButton = new javax.swing.JRadioButton();
-        addButton = new javax.swing.JButton();
+        bAdd = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         outputTable = new javax.swing.JTable();
         errorLabel = new javax.swing.JLabel();
@@ -51,8 +50,12 @@ public class MainForm1 extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        mHome = new javax.swing.JMenu();
+        mEmployees = new javax.swing.JMenu();
+        mDepartments = new javax.swing.JMenu();
+        mAssignments = new javax.swing.JMenu();
+        mPayroll = new javax.swing.JMenu();
+        mClose = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,13 +81,21 @@ public class MainForm1 extends javax.swing.JFrame {
         genderButtonGroup.add(maleRadioButton);
         maleRadioButton.setText("Male");
 
-        addButton.setText("Add");
-        addButton.addActionListener(new java.awt.event.ActionListener() {
+        bAdd.setText("Add");
+        bAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addButtonActionPerformed(evt);
+                bAddActionPerformed(evt);
             }
         });
 
+        outputTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
         jScrollPane1.setViewportView(outputTable);
 
         errorLabel.setForeground(new java.awt.Color(255, 0, 51));
@@ -106,11 +117,24 @@ public class MainForm1 extends javax.swing.JFrame {
 
         jLabel4.setText("End Date:");
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
+        mHome.setText("Home");
+        jMenuBar1.add(mHome);
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        mEmployees.setText("Employees");
+        jMenuBar1.add(mEmployees);
+
+        mDepartments.setText("Departments");
+        jMenuBar1.add(mDepartments);
+
+        mAssignments.setText("Assignments");
+        jMenuBar1.add(mAssignments);
+
+        mPayroll.setText("Payroll");
+        mPayroll.setActionCommand("Payroll");
+        jMenuBar1.add(mPayroll);
+
+        mClose.setText("Close");
+        jMenuBar1.add(mClose);
 
         setJMenuBar(jMenuBar1);
 
@@ -147,7 +171,7 @@ public class MainForm1 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(addButton)
+                        .addComponent(bAdd)
                         .addGap(18, 18, 18)
                         .addComponent(bUpdate)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -217,7 +241,7 @@ public class MainForm1 extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(addButton)
+                            .addComponent(bAdd)
                             .addComponent(bUpdate)
                             .addComponent(bCurrent)
                             .addComponent(bPast))))
@@ -227,7 +251,7 @@ public class MainForm1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
+    private void bAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAddActionPerformed
         DefaultTableModel table = (DefaultTableModel) outputTable.getModel();
         
         String gender = getSelectedButtonText(genderButtonGroup);
@@ -257,8 +281,8 @@ public class MainForm1 extends javax.swing.JFrame {
         }
         
         errorLabel.setText("");
-        table.addRow(new Object[]{firstNameText.getText(), lastNameText.getText(), emailText.getText(), phoneText.getText(), gender, positionComboBox});
-    }//GEN-LAST:event_addButtonActionPerformed
+        table.addRow(new Object[]{firstNameText.getText(), lastNameText.getText(), emailText.getText(), phoneText.getText(), gender});
+    }//GEN-LAST:event_bAddActionPerformed
 
     private void femaleRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femaleRadioButtonActionPerformed
         // TODO add your handling code here:
@@ -321,21 +345,23 @@ public class MainForm1 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainForm1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Employee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainForm1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Employee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainForm1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Employee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainForm1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Employee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainForm1().setVisible(true);
+                new Employee().setVisible(true);
             }
         });
     }
@@ -344,7 +370,7 @@ public class MainForm1 extends javax.swing.JFrame {
     private javax.swing.JTextField EmpIDText;
     private javax.swing.JLabel SSLabel;
     private javax.swing.JTextField SSText;
-    private javax.swing.JButton addButton;
+    private javax.swing.JButton bAdd;
     private javax.swing.JButton bCurrent;
     private javax.swing.JButton bPast;
     private javax.swing.JButton bUpdate;
@@ -359,12 +385,16 @@ public class MainForm1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lastNameLabel;
     private javax.swing.JTextField lastNameText;
+    private javax.swing.JMenu mAssignments;
+    private javax.swing.JMenu mClose;
+    private javax.swing.JMenu mDepartments;
+    private javax.swing.JMenu mEmployees;
+    private javax.swing.JMenu mHome;
+    private javax.swing.JMenu mPayroll;
     private javax.swing.JRadioButton maleRadioButton;
     private javax.swing.JTable outputTable;
     private javax.swing.JLabel phoneLabel;
